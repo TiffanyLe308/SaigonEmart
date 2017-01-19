@@ -1,0 +1,91 @@
+.signup-title-new, .login-title-returned {
+    border-top: 0;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 23px;
+    padding-bottom: 5px;
+}
+
+.signup-new-customer {
+    width: 50%;
+    padding: 0 5%;
+    margin-top: 20px;
+    float: left;
+    overflow: auto;
+}
+
+.login-title {
+    color: #000;
+    font-size: 375%;
+    letter-spacing: -.02em;
+    font-weight: 400;
+    text-align: center;
+    font-family: linotype-didot-roman-latin-1,georgia;
+    line-height: 2;
+    border-bottom: solid 1px #000;
+}
+
+.login-returned-customer {
+    width: 50%;
+    padding: 0 5%;
+    margin-top: 20px;
+    float: right;
+    overflow: auto;
+    border-left: 2px solid #000;
+}
+
+.login-returned-customer p {
+    margin-bottom: 25px;
+}
+
+md-input-container {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ng-pristine, .ng-valid, md-input, .ng-empty, .ng-valid-email, .ng-touched {
+  border-color: #000000 !important;
+}
+
+md-input-container label {
+    color: #000 !important;
+    opacity: 0.7;
+}
+
+.signup-button, .login-button {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.forgot-pass-row {
+    min-height: 48px;
+}
+
+.forgot-pass-link {
+    padding-top: 13px;
+}
+
+.forgot-pass-link a {
+    color: #000000 !important;
+}
+
+.signup-password-match {
+    position: absolute;
+    right: 10px;
+    color: green;
+}
+
+@media only screen and (min-width: 320px) and (max-device-width: 736px) {
+    .signup-new-customer, .login-returned-customer, md-input-container {
+        width: 100%;
+    }
+
+    .login-title {
+        margin-top: 1em;
+        line-height: 1.25;
+    }
+
+    .login-returned-customer {
+        margin-bottom: 2em;
+    }
+}

@@ -1,0 +1,23 @@
+<div class="row product-cube" ng-if="product.retailPrice > 0">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <a href="" ng-click="viewProductDetails()">
+                    <img ng-if="product.image && product.image.length > 0" class="img-thumbnail img-responsive product-thumbnail" alt="thumbnail"
+                     ng-src="{{'https://s3-us-west-1.amazonaws.com/elasticbeanstalk-us-west-1-850942366850/images/' + product.image}}" onerror="this.src='/images/logo-italic.png'">
+                </a>
+            </div>
+        </div>
+        <div class="row product-name">
+            <div class="col-xs-12 col-sm-12">
+                <span><strong>{{product.name}}</strong> (#{{product.id}})</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <span class="price"><strong><i>{{product.retailPrice | currency:'VND ':0}}</i></strong></span>&nbsp;
+                (<span class="price">{{product.retailPrice / 20000 | currency:'USD ':2}}</span>)
+            </div>
+        </div>
+    </div>
+</div>

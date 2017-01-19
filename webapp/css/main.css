@@ -1,0 +1,65 @@
+.container-fluid {
+    width: auto;
+    max-width: 1280px;
+}
+
+.carousel-control {
+    opacity: 0;
+    background-image: none !important;
+}
+
+.slide-carousel {
+    background: #ffffff;
+    margin-top: 0.5em;
+}
+
+.slide-carousel img {
+    float: left;
+}
+
+.title-carousel {
+    bottom: initial;
+    z-index: 1000;
+    right: 0 !important;
+}
+
+.title-carousel h3 {
+    max-width: 480px;
+    margin-top: 15%;
+    margin-left: 60%;
+    font-weight: 700;
+    border-bottom: 1px solid #ffffff;
+}
+
+.mobile-product-display {
+    display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-device-width: 576px) {
+    .slide-carousel {
+        display: none;
+    }
+
+    .mobile-product-display {
+        display: flex;
+        max-width: 450px;
+        height: 250px;
+        margin-top: 10%;
+        background: url("../images/jam1.jpg") center no-repeat;
+    }
+}
+
+/* ipad */
+@media only screen and (min-device-width : 576px) and (max-device-width : 768px) {
+    .slide-carousel {
+        display: none;
+    }
+
+    .mobile-product-display {
+        display: -webkit-flex;
+        display: flex;
+        height: 400px;
+        margin-top: 2em;
+        background: url("../images/jam2.jpg") no-repeat;
+    }
+}

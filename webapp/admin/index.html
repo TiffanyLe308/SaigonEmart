@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SgAdminApp" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <title>Administrator</title>
+    <link href="/css/index.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.8/angular-locale_vi-vn.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+
+    <script src="/js/utils/datetime.js"></script>
+    <script src="/js/admin/sgAdminApp.js"></script>
+    <script src="/js/admin/createNewProductCtrl.js"></script>
+    <script src="/js/admin/createNewOrderCtrl.js"></script>
+    <script src="/js/admin/orderReportCtrl.js"></script>
+</head>
+<body ng-controller="SgAdminAppController">
+    <div class="container-fluid main-view">
+        <ol class="breadcrumb">
+            <li><a href="/#">Home</a></li>
+            <li class="active">Admin</li>
+        </ol>
+
+        <div><a href="#product/new">Nhập Sản Phẩm</a>
+            | <a href="#order/new">Nhập Đơn Hàng</a>
+            | <a href="#orders/report">Báo cáo bán hàng</a>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Copyright &copy; Saigon E-mart 2016. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

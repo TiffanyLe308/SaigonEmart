@@ -1,0 +1,45 @@
+<div class="container">
+    <div layout="row" flex>
+        <div flex>
+            <h1 class="uppercase login-title">{{"views.index.login.title"| translate}}</h1>
+
+            <div layout="row" flex>
+                <div flex="50" class="signup-new-customer">
+                    <h3 class="signup-title-new">{{"views.index.login.signup.title.new"| translate}}</h3>
+                    <div>
+                        <p>{{"views.index.login.signup"| translate}}</p>
+                        <div layout="row" class="signup-row">
+                            <md-button href="#signup" class="md-raised no-margin signup-button" flex="100" flex-xs="100" flex-sm="100">{{"views.index.login.signup.button"| translate}}</md-button>
+                        </div>
+                    </div>
+                </div>
+
+                <div flex="50" class="login-returned-customer">
+                    <h3 class="login-title-returned">{{"views.index.login.returned"| translate}}</h3>
+                    <p>{{"views.index.login.returned.title"| translate}}</p>
+                    <form name="loginForm" ng-submit="login()">
+                        <div layout="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{"views.index.login.label.1"| translate}}</label>
+                                <input type="text" ng-model="credentials.username" title="email" name="username">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{"views.index.login.label.2"| translate}}</label>
+                                <input type="password" ng-model="credentials.password" title="password" name="password">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-button type="submit" class="md-raised no-margin login-button" flex="100" flex-xs="100" flex-sm="100">{{"views.index.login.returned.button"| translate}}</md-button>
+                        </div>
+                        <div layout="row" class="forgot-pass-row">
+                            <div class="center forgot-pass-link" flex="100"><a href="#forgotPassword">{{"views.index.login.forgotpass"| translate}}</a></div>
+                        </div>
+                        <md-divider></md-divider>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

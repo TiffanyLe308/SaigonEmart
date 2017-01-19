@@ -1,0 +1,95 @@
+<h3>Nhập Đơn Hàng</h3>
+<div class="row">
+    <div class="col-sm-3 col-xs-3">
+        <label for="reseller">Nhà bán lẻ</label>
+        <select class="form-control input-sm" id="reseller" ng-model="selectedReseller"
+                ng-change="getProductsForReseller()"
+                ng-options="reseller as reseller.name for reseller in resellers">
+            <option disabled value="">-- Chọn Nhà bán lẻ --</option>
+        </select>
+    </div>
+    <div class="col-sm-3 col-xs-3">
+        <label for="branch">Chi nhánh</label>
+        <select class="form-control input-sm" id="branch" ng-model="selectedBranch"
+                ng-options="branch as branch.name for branch in selectedReseller.branches">
+            <option disabled value="">-- Chọn Chi nhánh --</option>
+        </select>
+    </div>
+    <div class="col-sm-2 col-xs-2">
+        <label for="orderDate">Ngày đặt hàng</label>
+        <p class="input-group">
+            <input type="text" id="orderDate" class="form-control input-sm" uib-datepicker-popup="{{format}}"
+                   ng-model="dt" is-open="popup.opened" datepicker-options="dateOptions"
+                   ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-sm" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </p>
+    </div>
+    <div class="col-sm-2 col-xs-2">
+        <label for="invoiceNumber">Số hoá đơn</label>
+        <div class="row">
+            <div class="col-xs-5 small-padding"><input class="form-control input-sm" type="text" ng-model="invoicePrefix" placeholder="Mã sổ" id="invoiceNumberPrefix" title="Invoice Number Prefix"></div>
+            <div class="col-xs-7 small-padding"><input class="form-control input-sm" type="text" ng-model="invoiceNumber" placeholder="Số hoá đơn" id="invoiceNumber"></div>
+        </div>
+    </div>
+    <div class="col-sm-2 col-xs-2">
+        <label for="discount">Chiết khấu</label>
+        <div class="input-group">
+            <input class="form-control input-sm" type="text" id="discount" ng-model="discount" ng-change="updateOrderDiscount()">
+            <div class="input-group-addon">%</div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="alert alert-success" ng-if="successMessage">
+    <span ng-bind-html="successMessage"></span>
+</div>
+<div class="alert alert-danger" ng-if="errorMessage">
+    <span ng-bind-html="errorMessage"></span>
+</div>
+<div class="row" ng-if="selectedReseller">
+    <div class="col-sm-12 col-xs-12"><h3>Sản phẩm của {{selectedReseller.name}}</h3></div>
+</div>
+<div class="row" ng-if="selectedReseller">
+    <div class="col-sm-12 col-xs-12 text-center button-group-top">
+        <button class="btn btn-custom btn-default" ng-click="resetOrder()">Làm lại</button>
+        <button class="btn btn-custom btn-primary" ng-click="updateOrder()">Cập nhật</button>
+        <button class="btn btn-custom btn-primary" ng-click="submitOrder()">Đặt hàng</button>
+    </div>
+    <div class="col-sm-12 col-xs-12">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Mã</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá (VND)</th>
+                <th>Chiết khấu</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+            <tr ng-repeat="product in resellerProducts" ng-show="!isDoneInput || isDoneInput && product.quantity > 0">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td class="text-right">{{product.wholeSalePrice | number:0}}</td>
+                <td>
+                    <div class="input-group">
+                        <input type="text" ng-model="product.discount" class="form-control input-sm text-right" title="Chiết khấu">
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </td>
+                <td><input type="text" ng-model="product.quantity" class="form-control input-sm text-right" title="Số lượng"></td>
+                <td class="text-right">{{product.wholeSalePrice * product.quantity * (100 - product.discount) / 100 | number:0}}</td>
+            </tr>
+            <tr ng-if="isDoneInput">
+                <td colspan="5" class="text-right">Tổng cộng</td>
+                <td class="text-right"><strong>{{total | number:0}}</strong></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-12 col-xs-12 text-center">
+        <button class="btn btn-custom btn-default" ng-disabled="actionInProgress" ng-click="resetOrder()">Làm lại</button>
+        <button class="btn btn-custom btn-primary" ng-disabled="actionInProgress" ng-click="updateOrder()">Cập nhật</button>
+        <button class="btn btn-custom btn-primary" ng-disabled="actionInProgress" ng-click="submitOrder()">Đặt hàng</button>
+    </div>
+</div>

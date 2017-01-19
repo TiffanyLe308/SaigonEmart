@@ -1,0 +1,82 @@
+{
+  "PAGE_TITLE": "Saigon E-mart",
+  "views.aboutus.general.content": "Saigon-emart.com là 1 dự án kinh doanh mới trong lĩnh vực thương mại điện tử. Ý tưởng kinh doanh qua mạng Internet được Saigon E-mart phát triển dựa trên cơ sở phân tích, đánh giá cơ hội kinh doanh từ thị trường; đồng thời lập ra kế hoạch kinh doanh và đã thành công trong việc tìm kiếm nguồn tài trợ từ các nhà đầu tư.",
+
+  "views.index.login": "Đăng nhập",
+  "views.index.logout": "Thoát",
+  "views.index.home": "Trang chủ",
+  "views.index.product": "Sản phẩm",
+  "views.index.about": "Giới thiệu",
+  "views.index.contact": "Liên hệ",
+  "views.index.services": "Dịch vụ",
+  "views.index.terms": "Chính sách & Điều kiện giao hàng",
+
+  "views.index.carousel": "Món quà ngọt ngào cho mọi người",
+
+  "views.index.login.title": "Quản lý tài khoản",
+  "views.index.login.signup.title.new": "Bạn chưa có tài khoản?",
+  "views.index.login.signup": "Vui lòng nhấp chuột vào đường dẫn bên dưới",
+  "views.index.login.signup.button": "Đăng ký",
+  "views.index.login.returned": "Bạn đã có tài khoản?",
+  "views.index.login.returned.title": "Vui lòng điền email và mật khẩu vào",
+  "views.index.login.label.1": "Địa chỉ email",
+  "views.index.login.label.2": "Mật khẩu",
+  "views.index.login.returned.button": "Đăng nhập",
+  "views.index.login.forgotpass": "Quên mật khẩu?",
+
+  "views.index.product.category.1": "Thực phẩm",
+  "views.index.product.category.1.subcategory.1": "Mứt",
+  "views.index.product.category.1.subcategory.6": "Cà phê",
+  "views.index.product.category.1.subcategory.12": "Ô mai",
+  "views.index.product.category.1.subcategory.13": "Bánh",
+
+  "views.index.product.category.2": "Quần áo",
+  "views.index.product.category.2.subcategory.2": "Thời trang nữ",
+  "views.index.product.category.2.subcategory.5": "Đồ Bộ Teen",
+
+  "views.index.best.selling.products": "Sản phẩm nổi bật",
+  "views.index.new.products": "Sản phẩm mới",
+
+  "views.aboutus.subheader": "Giới thiệu về Saigon E-mart",
+  "views.aboutus.content": "Saigon-emart.com là dự án kinh doanh mới trong lĩnh vực thương mại điện tử. Ý tưởng kinh doanh qua mạng Internet được Saigon E-mart phát triển dựa trên cơ sở phân tích, đánh giá cơ hội kinh doanh từ thị trường; đồng thời lập ra kế hoạch kinh doanh và đã thành công trong việc tìm kiếm nguồn tài trợ từ các nhà đầu tư.",
+  "views.aboutus.management.team.header": "Đội ngũ quản lý",
+  "views.aboutus.customers": "Khách hàng",
+  "views.aboutus.customers.president": "Chủ tịch",
+  "views.aboutus.customers.ceo": "Tổng giám đốc",
+  "views.aboutus.customers.cto": "Giám đốc kỹ thuật",
+  "views.aboutus.customers.cso": "Giám đốc nghiên cứu khoa học",
+  "views.aboutus.customers.cmo": "Giám đốc marketing",
+
+  "views.contact.header": "Địa chỉ liên lạc",
+  "views.contact.street.address": "15 Phan Chu Trinh",
+  "views.contact.ward.and.distrct": "Phường Bến Thành, Quận 1",
+  "views.contact.city": "Thành phố Hồ Chí Minh",
+  "views.contact.country": "Việt Nam",
+  "views.contact.email": "ltthanhhoa@gmail.com",
+  "views.contact.phone": "(84) 838220635",
+  "views.contact.hours": "Thứ hai - thứ bảy: 9:00 - 17:00",
+
+  "views.index.services.header": "Dịch vụ",
+  "views.index.services.header.nav.1": "Trang chủ",
+  "views.index.services.header.nav.2": "Dịch vụ",
+  "views.index.services.tab.header": "Các loại dịch vụ",
+  "views.index.services.tab.1": "Theo hợp đồng",
+  "views.index.services.tab.2": "Theo yêu cầu",
+  "views.index.services.tab.1.detail": "Công ty sẽ đóng hàng dựa trên hợp đồng được ký kết giữa hai bên, để biết thêm chi tiết, mong quý khách liên lạc với chúng tôi.",
+  "views.index.services.tab.2.detail": "Công ty sẽ đóng hàng theo yêu cầu với số lượng lớn, để biết thêm chi tiết, mong quý khách liên lạc với chúng tôi.",
+  "views.index.services.tab.button": "Liên hệ",
+
+  "home.content.featured.products": "Sản phẩm nổi bật",
+  "home.slide.caption.1": "Mứt dâu tây",
+  "home.slide.caption.2": "Mứt khoai",
+  "home.slide.caption.3": "Mứt bí",
+
+  "views.index.language": "Ngôn ngữ",
+  "views.index.language.en": "Tiếng Anh",
+  "views.index.language.vn": "Tiếng Việt",
+
+  "views.product.code": "Mã sản phẩm",
+
+  "product.details.price": "Giá",
+  "button.close": "Đóng"
+}

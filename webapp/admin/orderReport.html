@@ -1,0 +1,182 @@
+<h3>Báo cáo bán hàng</h3>
+<md-content layout-padding>
+    <form name="orderReportForm">
+        <div layout-gt-xs="row">
+            <div flex-gt-xs class="text-center">
+                <md-input-container>
+                    <label>Từ ngày</label>
+                    <md-datepicker ng-model="fromDate" name="fromDate" required></md-datepicker>
+                    <div ng-messages="orderReportForm.fromDate.$error">
+                        <div ng-message="required">Vui lòng chọn ngày.</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div flex-gt-xs class="text-center">
+                <md-input-container>
+                    <label>Đến ngày</label>
+                    <md-datepicker ng-model="toDate" name="toDate" required></md-datepicker>
+                    <div ng-messages="orderReportForm.toDate.$error">
+                        <div ng-message="required">Vui lòng chọn ngày.</div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <div layout-gt-xs="row">
+            <div flex-gt-xs class="text-center">
+                <button class="btn btn-custom btn-primary" ng-click="getReport()" ng-disabled="isLoading || orderReportForm.fromDate.$error.required || orderReportForm.toDate.$error.required">Xem báo cáo</button>
+            </div>
+        </div>
+    </form>
+
+    <div layout="row" ng-if="isLoading">
+        <div flex="100"><div class="load-container load8"><div class="loader">Loading ...</div></div></div>
+    </div>
+
+    <div ng-if="isGettingReportOnce">
+        <!-- Display orders -->
+        <div layout-gt-xs="row" ng-if="orders.length > 0">
+            <div flex-gt-xs>
+                <div layout-gt-xs="row" class="text-center">
+                    <md-input-container flex="50">
+                        <label>Cách hiển thị</label>
+                        <md-select name="filterDisplayType" ng-model="filter.displayType" ng-change="changeFilterDisplayType()">
+                            <md-option value="0">Gộp đơn hàng theo khách hàng</md-option>
+                            <md-option value="1">Đơn hàng đơn lẻ</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                        <label>Hiển thị đơn hàng của khách hàng</label>
+                        <md-select name="filteredByReseller" ng-model="filter.resellerId" ng-change="filterOrdersByReseller()">
+                            <md-option value="-1">-- Tất cả --</md-option>
+                            <md-option ng-repeat="reseller in resellers" ng-value="reseller.id">{{::reseller.name}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-xs="row" class="text-center alert alert-info">
+                    <div flex="50">Tổng số đơn hàng: <strong>{{orders.length | number:0}}</strong></div>
+                    <div flex="50">Tổng cộng: <strong>{{orderReport.total | number:0}}</strong></div>
+                </div>
+
+                <!-- Display orders separately if found -->
+                <div ng-if="filter.displayType == ordersDisplayType.SEPARATE">
+                    <table class="table table-bordered table-striped" ng-if="displayOrders.length > 0">
+                        <tr>
+                            <th class="text-left">Số HD</th>
+                            <th class="text-right">Ngày đặt hàng</th>
+                            <th class="text-right">Chiết khấu</th>
+                            <th class="text-right">Thành tiền</th>
+                        </tr>
+                        <tr ng-repeat-start="order in displayOrders">
+                            <td class="text-left"><a href="" ng-click="showOrderDetails(order)">{{::order.orderNumber}}</a></td>
+                            <td class="text-right">{{::order.createdDate | date:'dd/MM/yyyy'}}</td>
+                            <td class="text-right">{{::order.discount}}%</td>
+                            <td class="text-right">{{::order.total | number:0}}</td>
+                        </tr>
+                        <tr ng-repeat-end ng-if="order.showDetails">
+                            <td colspan="4">
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th class="text-right">Mã</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th class="text-right">Giá</th>
+                                        <th class="text-right">Số lượng</th>
+                                        <th class="text-right">Thành tiền</th>
+                                    </tr>
+                                    <tr ng-repeat="orderLineItem in order.productDtos">
+                                        <td class="text-right">{{::orderLineItem.productId}}</td>
+                                        <td class="text-left">{{::orderLineItem.name}}</td>
+                                        <td class="text-right">{{::orderLineItem.price | number:0}}</td>
+                                        <td class="text-right">{{::orderLineItem.quantity}}</td>
+                                        <td class="text-right">{{::orderLineItem.subtotal | number:0}}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">Tổng cộng</td>
+                            <td class="text-right"><strong>{{orderReport.total | number:0}}</strong></td>
+                        </tr>
+                    </table>
+
+                    <!-- No orders found -->
+                    <table class="table table-bordered" ng-if="displayOrders.length == 0"><tr><td class="text-center"><strong><i>Không tìm thấy đơn hàng nào của khách hàng này.</i></strong></td></tr></table>
+                </div>
+
+                <!-- Display combined orders group by reseller -->
+                <div ng-if="filter.displayType == ordersDisplayType.COMBINED">
+                    <div ng-repeat="(resellerId, combinedOrder) in display.combinedOrdersByReseller" ng-if="filter.resellerId == -1 || filter.resellerId == resellerId">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div layout="row">
+                                    <div flex="50"><h4>{{resellerIdToResellerMap[resellerId].name}}</h4></div>
+                                    <div flex="50" class="text-right"><h4>{{combinedOrder.total | number:0}}</h4></div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-bordered table-striped">
+                                    <tr ng-if="combinedOrder.hcmCity.total > 0">
+                                        <td>
+                                            <h4>Nội thành</h4>
+                                            <table class="table table-bordered table-striped">
+                                                <tr>
+                                                    <th class="text-right">Mã</th>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th class="text-right">Giá</th>
+                                                    <th class="text-right">Số lượng</th>
+                                                    <th class="text-right">Thành tiền</th>
+                                                </tr>
+                                                <tr ng-repeat="(productId, combinedOrderLineItem) in combinedOrder.hcmCity.insideHcmCityOrders">
+                                                    <td class="text-right">{{combinedOrderLineItem.productId}}</td>
+                                                    <td>{{combinedOrderLineItem.name}}</td>
+                                                    <td class="text-right">{{combinedOrderLineItem.price | number:0}}</td>
+                                                    <td class="text-right">{{combinedOrderLineItem.quantity | number:0}}</td>
+                                                    <td class="text-right">{{combinedOrderLineItem.subtotal | number:0}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" class="text-right"><strong>Tổng</strong></td>
+                                                    <td class="text-right"><strong>{{combinedOrder.hcmCity.total | number:0}}</strong></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr ng-if="combinedOrder.outsideHcmCity.total > 0">
+                                        <td>
+                                            <h4>Tỉnh</h4>
+                                            <table class="table table-bordered table-striped">
+                                                <tr>
+                                                    <th class="text-right">Mã</th>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th class="text-right">Giá</th>
+                                                    <th class="text-right">Số lượng</th>
+                                                    <th class="text-right">Thành tiền</th>
+                                                </tr>
+                                                <tr ng-repeat="(productId, combinedOrderLineItem) in combinedOrder.outsideHcmCity.outsideHcmCityOrders">
+                                                    <td class="text-right">{{combinedOrderLineItem.productId}}</td>
+                                                    <td>{{combinedOrderLineItem.name}}</td>
+                                                    <td class="text-right">{{combinedOrderLineItem.price | number:0}}</td>
+                                                    <td class="text-right">{{combinedOrderLineItem.quantity | number:0}}</td>
+                                                    <td class="text-right">{{combinedOrderLineItem.subtotal | number:0}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" class="text-right"><strong>Tổng</strong></td>
+                                                    <td class="text-right"><strong>{{combinedOrder.outsideHcmCity.total | number:0}}</strong></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout-gt-xs="row" ng-if="orders.length == 0 && !isLoading">
+            <div flex-gt-xs>
+                <table class="table table-bordered"><tr><td class="text-center"><strong><i>Không tìm thấy đơn hàng nào.</i></strong></td></tr></table>
+            </div>
+        </div>
+    </div>
+</md-content>

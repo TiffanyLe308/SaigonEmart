@@ -1,0 +1,83 @@
+{
+  "PAGE_TITLE": "i18n for your AngularJS applications",
+  "views.aboutus.general.content": "Saigon E-mart is a new e-commerce project which all ideas will be concentrated to: increase awareness, generate more sales, and improve customer satisfaction.",
+
+  "views.index.login": "Login",
+  "views.index.logout": "Logout",
+  "views.index.home": "Home",
+  "views.index.product": "Product",
+  "views.index.about": "About us",
+  "views.index.contact": "Contact",
+  "views.index.services": "Services",
+  "views.index.terms": "Terms & Conditions",
+
+  "views.index.carousel": "Sweet and beautiful gifts for Everyone",
+
+  "views.index.login.title": "My account",
+  "views.index.login.signup.title.new": "New customer?",
+  "views.index.login.signup": "Please click to the link below to signup",
+  "views.index.login.signup.button": "Sign Up",
+  "views.index.login.returned": "Returning customer?",
+  "views.index.login.returned.title": "Please enter your email address and password",
+  "views.index.login.label.1": "Email address",
+  "views.index.login.label.2": "Password",
+  "views.index.login.returned.button": "Log In",
+  "views.index.login.forgotpass": "Forgot password?",
+
+  "views.index.product.category.1": "Food",
+  "views.index.product.category.1.subcategory.1": "Jelly",
+  "views.index.product.category.1.subcategory.6": "Coffee",
+  "views.index.product.category.1.subcategory.12": "Dried fruits",
+  "views.index.product.category.1.subcategory.13": "Cookies",
+
+  "views.index.product.category.2": "Clothes",
+  "views.index.product.category.2.subcategory.2": "Female",
+  "views.index.product.category.2.subcategory.5": "Teenager",
+
+  "views.index.best.selling.products": "Best Selling Products",
+  "views.index.new.products": "New Products",
+
+  "views.aboutus.subheader": "About Saigon E-mart",
+  "views.aboutus.content": "Saigon E-mart is a new e-commerce project which all ideas will be focused on increasing awareness in social, generating more sales, and improving customer satisfaction.",
+  "views.aboutus.management.team.header": "Management team",
+  "views.aboutus.customers": "Our customers",
+  "views.aboutus.customers.president": "President",
+  "views.aboutus.customers.ceo": "Chief Executive Officer",
+  "views.aboutus.customers.cto": "Chief Technology Officer",
+  "views.aboutus.customers.cso": "Chief Scientist Officer",
+  "views.aboutus.customers.cmo": "Chief Marketing Officer",
+
+  "views.contact.header": "Contact Details",
+  "views.contact.street.address": "15 Phan Chu Trinh Street",
+  "views.contact.ward.and.distrct": "Ben Thanh Ward, District 1",
+  "views.contact.city": "Ho Chi Minh City",
+  "views.contact.country": "Vietnam",
+  "views.contact.email": "ltthanhhoa@gmail.com",
+  "views.contact.phone": "(84) 838220635",
+  "views.contact.hours": "Monday - Saturday: 9:00 AM to 5:00 PM",
+
+  "views.index.services.header": "Services",
+  "views.index.services.header.nav.1": "Home",
+  "views.index.services.header.nav.2": "Services",
+  "views.index.services.tab.header": "Services Panels",
+  "views.index.services.tab.1": "Contract",
+  "views.index.services.tab.2": "Purchase order",
+  "views.index.services.tab.1.detail": "We will make order based on the contract. To learn more about the detail information, please contact us.",
+  "views.index.services.tab.2.detail": "We will make order based on the buyer demand (types, quantities, and agreed prices). To learn more about the detail information, please contact us.",
+  "views.index.services.tab.button": "Contact us",
+
+
+  "home.content.featured.products": "Featured products",
+  "home.slide.caption.1": "Mut dau tay",
+  "home.slide.caption.2": "Mut khoai",
+  "home.slide.caption.3": "Mut bi",
+
+  "views.index.language": "Language",
+  "views.index.language.en": "English",
+  "views.index.language.vn": "Vietnamese",
+
+  "views.product.code": "Product code",
+
+  "product.details.price": "Price",
+  "button.close": "Close"
+}

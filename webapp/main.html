@@ -1,0 +1,29 @@
+<div>
+    <div layout="row" flex>
+        <div flex>
+            <div class="slide-carousel">
+                <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                    <uib-slide ng-repeat="slide in slides" active="slide.active">
+                        <img class="slide-background-image img-responsive" ng-src="{{slide.image}}">
+                        <div class="carousel-caption title-carousel">
+                          <!-- <h4>Slide {{$index}}</h4> -->
+                          <!-- <h2>{{slide.text}}</h2> -->
+                          <h3><em>{{"views.index.carousel" | translate}}</em></h3>
+                        </div>
+                    </uib-slide>
+                </uib-carousel>
+            </div>
+
+            <div class="mobile-product-display">
+
+            </div>
+
+            <best-selling-products></best-selling-products>
+
+
+            </div>
+
+            <new-products></new-products>
+        </div>
+    </div>
+</div>

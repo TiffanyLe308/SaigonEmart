@@ -1,0 +1,15 @@
+<div layout="row">
+    <div class="product-detail-thumb-wrapper">
+        <img class="img-thumbnail" ng-src="{{'https://s3-us-west-1.amazonaws.com/elasticbeanstalk-us-west-1-850942366850/images/' + product.image}}" onerror="this.src='/images/logo-italic.png'">
+    </div>
+    <div flex>
+        <h3>{{product.name}}</h3>
+        <div layout="row">
+            <div flex="100">{{product.description}}</div>
+        </div>
+        <div layout="row">
+            <div flex="100"><span class="price"><strong><i>{{product.retailPrice | currency:'VND ':0}}</i></strong></span>&nbsp;
+                (<span class="price">{{product.retailPrice / 20000 | currency:'USD ':2}}</span>)</div>
+        </div>
+    </div>
+</div>
